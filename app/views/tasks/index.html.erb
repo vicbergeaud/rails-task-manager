@@ -1,11 +1,13 @@
+<div class="container">
 <h2> My tasks </h2>
 	<% @tasks.each do |task| %>
-	<li><%= link_to task.title, task_path(task) %></li>
+	<div class="py-3 px-2" style="background-color: rgba(230, 230, 230, 0.2); margin: 1rem auto; list-style-type: none; display: flex; justify-content: space-between"><%= link_to task.title, task_path(task) %>
 		<% if task.completed? %>
-			<p><input type="checkbox" id="task" name="task" checked>
+			<span><input type="checkbox" id="task" name="task" checked></span>
 		<% else %>
-			<p><input type="checkbox" id="task" name="task" unchecked>
+			<span><input type="checkbox" id="task" name="task" unchecked></span>
 			   <% end %>
+			   </div>
 	<% end %>
-
-			<p><%= link_to "Create a new task", tasks_new_path %></p>
+			<p><%= link_to "Create a new task", tasks_new_path, class:"btn btn-primary" %></p>
+</div>

@@ -1,13 +1,26 @@
-<h2> Edit a task </h2>
-<%= form_for @task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class="container">
 
-  <%= f.label :details %>
-  <%= f.text_field :details %>
+<%= simple_form_for(@task) do |f| %>
+<div class="form-group">
+<strong><%= f.label :title %></strong>
+<%= f.text_field :title, class: 'form-control' %>
+</div>
 
-  <%= f.label :completed %>
-  <%= f.text_field :completed %>
+<div class="form-group">
+<strong><%= f.label :details %></strong>
+<%= f.text_field :details, class: 'form-control' %>
+</div>
 
-  <%= f.submit %>
+<div class="form-check">
+<%= f.check_box :completed, class: 'form-check-input' %>
+<%= f.label :completed, "Done", class: 'form-check-label' %></span>
+</div>
+
+<div class="input"><%= f.submit class: 'btn btn-primary' %></div>
 <% end %>
+<div class="border-top">
+<div class="back-link">
+<i class="fas fa-redo"></i><span><%= link_to "Back to all tasks", tasks_path %></span>
+</div>
+</div>
+</div>

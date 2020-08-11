@@ -1,8 +1,12 @@
 
-<h1><%= @task[] %></h1>
+<h1><%= @task[:title] %></h1>
 
-<p>Price: <strong><%= @task[] %></strong></p>
+<p><%= @task[:details] %></p>
 
-<p> Created at <%= @task[] %></p>
+<p> Completed <%= @task[:completed] %></p>
 
-<p><%= link_to "Back to all tasks", tasks_path %></p>
+<p><%= link_to 'Edit', edit_task_path(@task) %></p>
+
+<p><%= link_to "Delete #{@task.title}", task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %></p>
+
+#<p><%= link_to 'Back to all tasks', tasks_path %></p>
